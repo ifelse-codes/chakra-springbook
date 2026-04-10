@@ -13,6 +13,7 @@ public class Author {
     private Long id;
     private String name;
     private String bio;
+    private String email;
 
     public Author() {
     }
@@ -20,6 +21,12 @@ public class Author {
     public Author(String name, String bio) {
         this.name = name;
         this.bio = bio;
+    }
+
+    public Author(String name, String bio, String email) {
+        this.name = name;
+        this.bio = bio;
+        this.email = email;
     }
 
     public Long getId() {
@@ -44,5 +51,13 @@ public class Author {
 
     public void setBio(String bio) {
         this.bio = bio;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
