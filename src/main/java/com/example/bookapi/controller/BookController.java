@@ -24,7 +24,7 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Book> getBookById(@PathVariable Long id) {
+    public ResponseEntity<Book> getBookById(@PathVariable("id") Long id) {
         return bookRepository.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -37,7 +37,7 @@ public class BookController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody Book updatedBook) {
+    public ResponseEntity<Book> updateBook(@PathVariable("id") Long id, @RequestBody Book updatedBook) {
         return bookRepository.findById(id)
                 .map(existing -> {
                     existing.setTitle(updatedBook.getTitle());
@@ -49,7 +49,7 @@ public class BookController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteBook(@PathVariable Long id) {
+    public ResponseEntity<?> deleteBook(@PathVariable("id") Long id) {
         return bookRepository.findById(id)
                 .map(existing -> {
                     bookRepository.delete(existing);
