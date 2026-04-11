@@ -17,6 +17,7 @@ public class Author {
     private String website;
     private String nationality;
     private String birthPlace;
+    private String twitterHandle;
 
     public Author() {
     }
@@ -54,6 +55,16 @@ public class Author {
         this.website = website;
         this.nationality = nationality;
         this.birthPlace = birthPlace;
+    }
+
+    public Author(String name, String bio, String email, String website, String nationality, String birthPlace, String twitterHandle) {
+        this.name = name;
+        this.bio = bio;
+        this.email = email;
+        this.website = website;
+        this.nationality = nationality;
+        this.birthPlace = birthPlace;
+        this.twitterHandle = twitterHandle;
     }
 
     public Long getId() {
@@ -110,5 +121,13 @@ public class Author {
 
     public void setBirthPlace(String birthPlace) {
         this.birthPlace = birthPlace;
+    }
+
+    public String getTwitterHandle() {
+        return twitterHandle;
+    }
+
+    public void setTwitterHandle(String twitterHandle) {
+        this.twitterHandle = twitterHandle;
     }
 }
