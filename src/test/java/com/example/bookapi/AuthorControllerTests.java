@@ -20,7 +20,7 @@ class AuthorControllerTests {
 
     @Test
     void createAndGetAuthor() {
-        Author author = new Author("Eric Evans", "Domain-driven design expert", "eric.evans@example.com");
+        Author author = new Author("Eric Evans", "Domain-driven design expert", "eric.evans@example.com", "https://example.com");
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json");
 
@@ -43,5 +43,6 @@ class AuthorControllerTests {
         Assertions.assertEquals("Eric Evans", getResponse.getBody().getName());
         Assertions.assertEquals("Domain-driven design expert", getResponse.getBody().getBio());
         Assertions.assertEquals("eric.evans@example.com", getResponse.getBody().getEmail());
+        Assertions.assertEquals("https://example.com", getResponse.getBody().getWebsite());
     }
 }

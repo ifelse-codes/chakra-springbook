@@ -14,6 +14,7 @@ public class Author {
     private String name;
     private String bio;
     private String email;
+    private String website;
 
     public Author() {
     }
@@ -27,6 +28,13 @@ public class Author {
         this.name = name;
         this.bio = bio;
         this.email = email;
+    }
+
+    public Author(String name, String bio, String email, String website) {
+        this.name = name;
+        this.bio = bio;
+        this.email = email;
+        this.website = website;
     }
 
     public Long getId() {
@@ -59,5 +67,13 @@ public class Author {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 }
