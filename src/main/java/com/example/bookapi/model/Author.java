@@ -15,6 +15,7 @@ public class Author {
     private String bio;
     private String email;
     private String website;
+    private String nationality;
 
     public Author() {
     }
@@ -35,6 +36,14 @@ public class Author {
         this.bio = bio;
         this.email = email;
         this.website = website;
+    }
+
+    public Author(String name, String bio, String email, String website, String nationality) {
+        this.name = name;
+        this.bio = bio;
+        this.email = email;
+        this.website = website;
+        this.nationality = nationality;
     }
 
     public Long getId() {
@@ -75,5 +84,13 @@ public class Author {
 
     public void setWebsite(String website) {
         this.website = website;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
     }
 }
