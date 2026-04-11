@@ -25,7 +25,8 @@ class AuthorControllerTests {
                 "Domain-driven design expert",
                 "eric.evans@example.com",
                 "https://example.com",
-                "British"
+                "British",
+                "London"
         );
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json");
@@ -51,5 +52,6 @@ class AuthorControllerTests {
         Assertions.assertEquals("eric.evans@example.com", getResponse.getBody().getEmail());
         Assertions.assertEquals("https://example.com", getResponse.getBody().getWebsite());
         Assertions.assertEquals("British", getResponse.getBody().getNationality());
+        Assertions.assertEquals("London", getResponse.getBody().getBirthPlace());
     }
 }
