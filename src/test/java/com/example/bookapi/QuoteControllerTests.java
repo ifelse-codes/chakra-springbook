@@ -20,7 +20,12 @@ class QuoteControllerTests {
 
     @Test
     void createAndManageQuote() {
-        Quote quote = new Quote("Simplicity is the ultimate sophistication.", "Leonardo da Vinci", "philosophy");
+        Quote quote = new Quote(
+                "Simplicity is the ultimate sophistication.",
+                "Leonardo da Vinci",
+                "philosophy",
+                "Renaissance writings"
+        );
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json");
 
@@ -41,6 +46,7 @@ class QuoteControllerTests {
         Assertions.assertEquals(HttpStatus.OK, getResponse.getStatusCode());
         Assertions.assertNotNull(getResponse.getBody());
         Assertions.assertEquals("Leonardo da Vinci", getResponse.getBody().getAuthor());
+        Assertions.assertEquals("Renaissance writings", getResponse.getBody().getSource());
 
         quote.setText("Simplicity is the ultimate sophistication. Updated.");
         ResponseEntity<Quote> updateResponse = restTemplate.exchange(

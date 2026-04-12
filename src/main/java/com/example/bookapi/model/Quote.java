@@ -14,6 +14,7 @@ public class Quote {
     private String text;
     private String author;
     private String category;
+    private String source;
 
     public Quote() {
     }
@@ -22,6 +23,13 @@ public class Quote {
         this.text = text;
         this.author = author;
         this.category = category;
+    }
+
+    public Quote(String text, String author, String category, String source) {
+        this.text = text;
+        this.author = author;
+        this.category = category;
+        this.source = source;
     }
 
     public Long getId() {
@@ -54,5 +62,13 @@ public class Quote {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
     }
 }
