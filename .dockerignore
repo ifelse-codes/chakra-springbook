@@ -1,0 +1,34 @@
+# Build artifacts
+target/
+*.jar
+*.jar.original
+*.class
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+README.md
+docs/
+
+# Tests
+src/test/
+.mvn/
+
+# Logs
+*.log
+
+# Maven
+.mvn/
+maven-wrapper.jar
+maven-wrapper.properties
