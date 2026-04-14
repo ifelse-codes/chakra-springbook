@@ -36,6 +36,7 @@ public class PublisherService {
                     existing.setFoundedYear(publisher.getFoundedYear());
                     existing.setWebsite(publisher.getWebsite());
                     existing.setContactEmail(publisher.getContactEmail());
+                    existing.setAddress(publisher.getAddress());
                     return publisherRepository.save(existing);
                 });
     }

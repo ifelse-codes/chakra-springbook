@@ -20,7 +20,14 @@ class PublisherControllerTests {
 
     @Test
     void createUpdateDeletePublisher() {
-        Publisher publisher = new Publisher("O'Reilly Media", "USA", 1980, "https://oreilly.com", "contact@oreilly.com");
+        Publisher publisher = new Publisher(
+                "O'Reilly Media",
+                "USA",
+                1980,
+                "https://oreilly.com",
+                "contact@oreilly.com",
+                "1005 Gravenstein Highway North, Sebastopol, CA"
+        );
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json");
 
@@ -42,9 +49,11 @@ class PublisherControllerTests {
         Assertions.assertNotNull(getResponse.getBody());
         Assertions.assertEquals("O'Reilly Media", getResponse.getBody().getName());
         Assertions.assertEquals("contact@oreilly.com", getResponse.getBody().getContactEmail());
+        Assertions.assertEquals("1005 Gravenstein Highway North, Sebastopol, CA", getResponse.getBody().getAddress());
 
         publisher.setWebsite("https://www.oreilly.com");
         publisher.setContactEmail("hello@oreilly.com");
+        publisher.setAddress("225 W 35th St, New York, NY");
         ResponseEntity<Publisher> updateResponse = restTemplate.exchange(
                 "/api/publishers/" + publisherId,
                 HttpMethod.PUT,
@@ -56,6 +65,7 @@ class PublisherControllerTests {
         Assertions.assertNotNull(updateResponse.getBody());
         Assertions.assertEquals("https://www.oreilly.com", updateResponse.getBody().getWebsite());
         Assertions.assertEquals("hello@oreilly.com", updateResponse.getBody().getContactEmail());
+        Assertions.assertEquals("225 W 35th St, New York, NY", updateResponse.getBody().getAddress());
 
         ResponseEntity<Void> deleteResponse = restTemplate.exchange(
                 "/api/publishers/" + publisherId,
