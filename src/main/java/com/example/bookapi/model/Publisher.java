@@ -15,15 +15,17 @@ public class Publisher {
     private String country;
     private Integer foundedYear;
     private String website;
+    private String contactEmail;
 
     public Publisher() {
     }
 
-    public Publisher(String name, String country, Integer foundedYear, String website) {
+    public Publisher(String name, String country, Integer foundedYear, String website, String contactEmail) {
         this.name = name;
         this.country = country;
         this.foundedYear = foundedYear;
         this.website = website;
+        this.contactEmail = contactEmail;
     }
 
     public Long getId() {
@@ -64,5 +66,13 @@ public class Publisher {
 
     public void setWebsite(String website) {
         this.website = website;
+    }
+
+    public String getContactEmail() {
+        return contactEmail;
+    }
+
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
     }
 }

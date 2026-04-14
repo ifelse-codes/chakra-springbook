@@ -20,7 +20,7 @@ class PublisherControllerTests {
 
     @Test
     void createUpdateDeletePublisher() {
-        Publisher publisher = new Publisher("O'Reilly Media", "USA", 1980, "https://oreilly.com");
+        Publisher publisher = new Publisher("O'Reilly Media", "USA", 1980, "https://oreilly.com", "contact@oreilly.com");
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json");
 
@@ -41,8 +41,10 @@ class PublisherControllerTests {
         Assertions.assertEquals(HttpStatus.OK, getResponse.getStatusCode());
         Assertions.assertNotNull(getResponse.getBody());
         Assertions.assertEquals("O'Reilly Media", getResponse.getBody().getName());
+        Assertions.assertEquals("contact@oreilly.com", getResponse.getBody().getContactEmail());
 
         publisher.setWebsite("https://www.oreilly.com");
+        publisher.setContactEmail("hello@oreilly.com");
         ResponseEntity<Publisher> updateResponse = restTemplate.exchange(
                 "/api/publishers/" + publisherId,
                 HttpMethod.PUT,
@@ -53,6 +55,7 @@ class PublisherControllerTests {
         Assertions.assertEquals(HttpStatus.OK, updateResponse.getStatusCode());
         Assertions.assertNotNull(updateResponse.getBody());
         Assertions.assertEquals("https://www.oreilly.com", updateResponse.getBody().getWebsite());
+        Assertions.assertEquals("hello@oreilly.com", updateResponse.getBody().getContactEmail());
 
         ResponseEntity<Void> deleteResponse = restTemplate.exchange(
                 "/api/publishers/" + publisherId,
