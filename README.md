@@ -2,6 +2,12 @@
 
 Simple Spring Boot application exposing a book REST API backed by PostgreSQL and OpenAPI/Swagger UI.
 
+## Requirements
+
+- Java 11
+- Maven 3.x
+- PostgreSQL for local app runs
+
 ## Run
 
 1. Start PostgreSQL with:
@@ -31,3 +37,9 @@ mvn spring-boot:run
 - `POST /api/books`
 - `PUT /api/books/{id}`
 - `DELETE /api/books/{id}`
+
+## Tests
+
+`mvn test`
+
+Tests run against an in-memory H2 database, so they do not require PostgreSQL.
