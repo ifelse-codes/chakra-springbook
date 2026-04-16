@@ -43,6 +43,7 @@ public class EditionController {
                     existing.setTitle(updatedEdition.getTitle());
                     existing.setEditionNumber(updatedEdition.getEditionNumber());
                     existing.setPublicationYear(updatedEdition.getPublicationYear());
+                    existing.setIsbn(updatedEdition.getIsbn());
                     return ResponseEntity.ok(editionRepository.save(existing));
                 })
                 .orElse(ResponseEntity.notFound().build());

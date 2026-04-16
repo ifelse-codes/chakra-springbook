@@ -14,6 +14,7 @@ public class Edition {
     private String title;
     private Integer editionNumber;
     private Integer publicationYear;
+    private String isbn;
 
     public Edition() {
     }
@@ -22,6 +23,13 @@ public class Edition {
         this.title = title;
         this.editionNumber = editionNumber;
         this.publicationYear = publicationYear;
+    }
+
+    public Edition(String title, Integer editionNumber, Integer publicationYear, String isbn) {
+        this.title = title;
+        this.editionNumber = editionNumber;
+        this.publicationYear = publicationYear;
+        this.isbn = isbn;
     }
 
     public Long getId() {
@@ -54,5 +62,13 @@ public class Edition {
 
     public void setPublicationYear(Integer publicationYear) {
         this.publicationYear = publicationYear;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 }
